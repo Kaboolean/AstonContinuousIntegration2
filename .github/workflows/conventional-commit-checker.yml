@@ -3,22 +3,31 @@ name: Validate Branch Naming
 on:
   push:
     branches:
-      - main
+      - hotfix/*
+      - features/*
 
 jobs:
-  validate-branch-name:
+  check-for-cc:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+      - name: check-for-cc
+        id: check-for-cc
+        uses: agenthunt/conventional-commit-checker-action@v1.0.0
 
-      - name: Validate branch name
-        run: |
-          branch_name=$(git rev-parse --abbrev-ref HEAD)
-          if [[ $branch_name != hotfix/* ]]; then
-            echo "Branch name does not follow the required pattern (hotfix/)."
-            exit 1
-          else
-            echo "Branch name is valid."
-          fi
+
+  # validate-branch-name:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Check out code
+  #       uses: actions/checkout@v3
+
+  #     - name: Validate branch name
+  #       run: |
+  #         branch_name=$(git rev-parse --abbrev-ref HEAD)
+  #         if [[ $branch_name != hotfix/* ]]; then
+  #           echo "Branch name does not follow the required pattern (hotfix/)."
+  #           exit 1
+  #         else
+  #           echo "Branch name is valid."
+  #         fi
