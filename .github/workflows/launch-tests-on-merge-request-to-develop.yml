@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    if: ${{ github.head_ref == 'feature/*' }}
+    if: startsWith(github.head_ref, 'feature/')
     strategy:
       matrix:
         node_version: [14, 16]
