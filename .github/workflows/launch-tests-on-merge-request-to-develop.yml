@@ -1,0 +1,27 @@
+name: Launch tests on merge request to develop
+
+on:
+  pull_request:
+    branches:
+      - feature/*
+
+jobs:
+  test:
+    if: ${{ github.base_ref == 'develop' }}
+    strategy:
+      matrix:
+        node_version: [14, 16]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node_version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Launch tests
+        run: npm run test

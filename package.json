@@ -1,0 +1,12 @@
+{
+  "name": "exercice-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Lancement des tests...",
+    "test:coverage": "echo \"Lancement des tests et affichage du coverage..."
+  },
+  "author": "",
+  "license": "ISC"
+}
