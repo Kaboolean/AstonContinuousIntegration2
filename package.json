@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Lancement des tests...",
-    "test:coverage": "echo \"Lancement des tests et affichage du coverage..."
+    "test": "echo \"Lancement des tests...\"",
+    "test:coverage": "echo \"Lancement des tests et affichage du coverage...\""
   },
   "author": "",
   "license": "ISC"
