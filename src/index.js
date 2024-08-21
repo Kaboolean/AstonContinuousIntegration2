@@ -1,1 +1,1 @@
-console.log('Tasty burge')
+console.log('Tasty burger')

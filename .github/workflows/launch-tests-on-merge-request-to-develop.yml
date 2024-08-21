@@ -3,11 +3,11 @@ name: Launch tests on merge request to develop
 on:
   pull_request:
     branches:
-      - feature/*
+      - develop
 
 jobs:
   test:
-    if: ${{ github.base_ref == 'develop' }}
+    if: ${{ github.head_ref == 'feature/*' }}
     strategy:
       matrix:
         node_version: [14, 16]
