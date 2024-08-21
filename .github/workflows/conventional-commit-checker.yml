@@ -1,4 +1,4 @@
-name: Validate Branch Naming
+name: Conventional Commits
 
 on:
   push:
@@ -7,27 +7,10 @@ on:
       - features/*
 
 jobs:
-  check-for-cc:
+  build:
+    name: Conventional Commits
     runs-on: ubuntu-latest
     steps:
-      - name: check-for-cc
-        id: check-for-cc
-        uses: agenthunt/conventional-commit-checker-action@v1.0.0
+      - uses: actions/checkout@v3
 
-
-  # validate-branch-name:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Check out code
-  #       uses: actions/checkout@v3
-
-  #     - name: Validate branch name
-  #       run: |
-  #         branch_name=$(git rev-parse --abbrev-ref HEAD)
-  #         if [[ $branch_name != hotfix/* ]]; then
-  #           echo "Branch name does not follow the required pattern (hotfix/)."
-  #           exit 1
-  #         else
-  #           echo "Branch name is valid."
-  #         fi
+      - uses: webiny/action-conventional-commits@v1.3.0
